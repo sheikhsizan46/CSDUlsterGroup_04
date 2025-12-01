@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCity - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-white min-h-screen relative overflow-x-hidden selection-green">
+
+    <div id="bg-container" class="fixed inset-0 z-0 bg-slate-900">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-slate-900/90 z-10"></div>
+    </div>
+
+    <nav class="relative z-20 flex items-center justify-between px-6 py-4 lg:px-12 transition-all duration-300">
+        <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
+            <div class="bg-green-500/20 p-2 rounded-xl group-hover:bg-green-500/30 transition-colors backdrop-blur-sm border border-green-500/30">
+                <i data-lucide="leaf" class="w-6 h-6 text-green-400"></i>
+            </div>
+            <span class="text-2xl font-bold tracking-tight text-white group-hover:text-green-400 transition-colors">CleanCity<span class="text-green-500">.uk</span></span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 bg-black/20 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-lg">
+            <a href="index.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">Home</a>
+            <a href="about.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">About Us</a>
+            <a href="missions.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">Our Missions</a>
+            <a href="teams.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">Our Teams</a>
+            <a href="contact.html" class="text-green-400 font-bold text-sm relative group transition-colors">Contact</a>
+        </div>
+
+        <div class="hidden md:block">
+            <div id="desktop-guest-view">
+                <button onclick="openLoginModal()" class="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-white/20 active:scale-95">Login</button>
+            </div>
+            <div id="desktop-user-view" class="hidden items-center gap-4 animate-fade-in-up">
+                <div class="flex flex-col text-right">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Welcome</span>
+                    <span id="user-email-display" class="text-sm font-bold text-green-400">user</span>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-green-500 to-emerald-400 flex items-center justify-center text-white font-bold shadow-lg shadow-green-500/20">U</div>
+                <button onclick="logout()" class="text-xs text-red-300 hover:text-red-200 hover:underline transition-colors">Logout</button>
+            </div>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2 bg-white/10 rounded-lg backdrop-blur-sm"><i data-lucide="menu"></i></button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-30 bg-slate-900/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 animate-fade-in-up">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-white p-2"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <div class="flex flex-col gap-4 text-center">
+            <a href="index.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">Home</a>
+            <a href="about.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">About Us</a>
+            <a href="missions.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">Our Missions</a>
+            <a href="teams.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">Our Teams</a>
+            <a href="contact.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white font-bold">Contact</a>
+        </div>
+        <div class="mt-4">
+            <button id="mobile-login-btn" onclick="openLoginModal()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold shadow-lg shadow-green-500/20">Login</button>
+            <button id="mobile-logout-btn" onclick="logout()" class="hidden w-full bg-red-500/20 text-red-300 py-4 rounded-xl font-bold border border-red-500/30">Logout</button>
+        </div>
+    </div>
+
+    <main class="relative z-10 flex flex-col flex-grow min-h-[80vh] px-4 pt-32 md:pt-48">
+        <section class="page-section">
+            <div class="reveal-on-scroll flex flex-col items-center justify-center px-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 text-center">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    <span class="text-sm font-medium text-green-100">Get in Touch</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 drop-shadow-2xl max-w-5xl leading-tight text-center">
+                    Contact <span class="text-gradient">CleanCity</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mb-12 leading-relaxed drop-shadow-lg bg-black/20 p-4 rounded-xl backdrop-blur-sm text-center">
+                    Whether you're a resident, council, or partner, we’d love to hear from you.
+                    Reach out to learn more, collaborate, or start a project in your city.
+                </p>
+
+                <div class="grid gap-8 md:grid-cols-2 w-full max-w-5xl mb-24">
+                    
+                    <div class="glass-panel rounded-2xl p-6 border border-white/10 flex flex-col h-full">
+                        <h2 class="font-semibold text-2xl mb-4 flex items-center gap-2">
+                            <i data-lucide="info" class="w-5 h-5 text-green-400"></i>
+                            Contact Information
+                        </h2>
+                        <ul class="space-y-4 text-sm text-gray-200 mb-8">
+                            <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 mt-0.5 text-green-400"></i><span>10 Rosebery Avenue, London, UK</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="phone" class="w-5 h-5 mt-0.5 text-green-400"></i><span>+44 020 7946 0000</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="mail" class="w-5 h-5 mt-0.5 text-green-400"></i><span>info@cleancity.org.uk</span></li>
+                        </ul>
+                        
+                        <div class="mt-auto w-full h-64 rounded-xl overflow-hidden border border-white/10 shadow-lg relative">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d198.50563187191093!2d-0.1117088!3d51.5256873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b51ac30d4df%3A0xa2c25829b93d7c5f!2s10%20Rosebery%20Ave%2C%20London%20EC1R%204TF%2C%20UK!5e0!3m2!1sen!2suk!4v1707065123456!5m2!1sen!2suk" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                class="map-dark-mode absolute inset-0">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-6 border border-white/10">
+                        <h2 class="font-semibold text-2xl mb-4 flex items-center gap-2">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
+                            Send Us a Message
+                        </h2>
+                        <form class="space-y-4 text-sm" onsubmit="event.preventDefault(); alert('Demo: Message sent successfully!');">
+                            <div><label class="block mb-1 text-gray-300">Name</label><input type="text" class="w-full px-3 py-2 rounded-xl bg-slate-900/80 border border-white/10 focus:outline-none focus:border-green-400" placeholder="Your name" /></div>
+                            <div><label class="block mb-1 text-gray-300">Email</label><input type="email" class="w-full px-3 py-2 rounded-xl bg-slate-900/80 border border-white/10 focus:outline-none focus:border-green-400" placeholder="you@example.com" /></div>
+                            <div><label class="block mb-1 text-gray-300">Subject</label><input type="text" class="w-full px-3 py-2 rounded-xl bg-slate-900/80 border border-white/10 focus:outline-none focus:border-green-400" placeholder="Inquiry..." /></div>
+                            <div><label class="block mb-1 text-gray-300">Message</label><textarea rows="4" class="w-full px-3 py-2 rounded-xl bg-slate-900/80 border border-white/10 focus:outline-none focus:border-green-400" placeholder="How can we help?"></textarea></div>
+                            <button class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-3 rounded-xl transition-all shadow-[0_0_15px_rgba(34,197,94,0.4)]">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="bg-dots" class="absolute bottom-10 left-0 right-0 z-10 flex justify-center gap-3 hidden md:flex"></div>
+        </section>
+    </main>
+
+    <footer class="relative z-20 bg-slate-950 border-t border-white/10 pt-16 pb-8 text-sm">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="leaf" class="w-6 h-6 text-green-500"></i>
+                        <span class="text-xl font-bold text-white">CleanCity<span class="text-green-500">.uk</span></span>
+                    </div>
+                    <p class="text-gray-400">Empowering communities across the UK to build cleaner, greener cities.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-green-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="missions.html" class="text-gray-400 hover:text-green-400 transition-colors">Our Missions</a></li>
+                        <li><a href="teams.html" class="text-gray-400 hover:text-green-400 transition-colors">Our Teams</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-green-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-green-500"></i><span>10 Rosebery Avenue, London, UK
+</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="mail" class="w-5 h-5 text-green-500"></i><span>info@cleancity.org.uk</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                    <form class="space-y-3" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your email" class="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green-500" />
+                        <button class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-gray-500">© 2025 CleanCity UK Initiative. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div id="login-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="modal-backdrop" onclick="closeLoginModal()" class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+        <div class="relative w-full max-w-md bg-slate-900 border border-white/20 rounded-[2rem] shadow-2xl overflow-hidden animate-fade-in-up">
+            <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-br from-green-500/20 to-blue-500/20 blur-2xl"></div>
+            <button onclick="closeLoginModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors z-20"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="p-8 relative z-10">
+                <div class="text-center mb-10 mt-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-green-500 to-emerald-400 shadow-lg shadow-green-500/30 mb-6 transform rotate-3">
+                        <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white">Welcome Back</h2>
+                    <p class="text-gray-400 mt-3">Access your sustainable dashboard.</p>
+                </div>
+                <form id="auth-form" class="space-y-5">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-green-400 uppercase tracking-wider ml-1">Email</label>
+                        <input type="email" id="email-input" required placeholder="name@example.com" class="w-full bg-slate-800 border border-white/10 rounded-xl py-4 px-4 text-white focus:outline-none focus:border-green-500">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-green-400 uppercase tracking-wider ml-1">Password</label>
+                        <input type="password" id="password-input" required placeholder="••••••••" class="w-full bg-slate-800 border border-white/10 rounded-xl py-4 px-4 text-white focus:outline-none focus:border-green-500">
+                    </div>
+                    <button type="submit" id="auth-submit" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg mt-4">Access Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script src="js/script.js"></script>
+</body>
+</html>

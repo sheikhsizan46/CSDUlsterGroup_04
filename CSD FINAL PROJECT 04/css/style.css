@@ -1,0 +1,65 @@
+/* style.css */
+
+/* --- Core Styles --- */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Green text selection color */
+.selection-green::selection {
+    background-color: #22c55e;
+    color: white;
+}
+
+/* --- Animations --- */
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translate3d(0, 20px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(-5%); }
+    50% { transform: translateY(5%); }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 3s infinite ease-in-out;
+}
+
+/* --- Visual Effects --- */
+/* Gradient text effect */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #86efac, #ffffff, #93c5fd);
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Scroll Reveal Logic --- */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Page Specific --- */
+/* Dark mode filter for the map on contact.html */
+.map-dark-mode {
+    filter: grayscale(100%) invert(92%) contrast(83%);
+}

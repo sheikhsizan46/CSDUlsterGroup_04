@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanCity - Our Missions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-white min-h-screen relative overflow-x-hidden selection-green">
+
+    <div id="bg-container" class="fixed inset-0 z-0 bg-slate-900">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-slate-900/90 z-10"></div>
+    </div>
+
+    <nav class="relative z-20 flex items-center justify-between px-6 py-4 lg:px-12 transition-all duration-300">
+        <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
+            <div class="bg-green-500/20 p-2 rounded-xl group-hover:bg-green-500/30 transition-colors backdrop-blur-sm border border-green-500/30">
+                <i data-lucide="leaf" class="w-6 h-6 text-green-400"></i>
+            </div>
+            <span class="text-2xl font-bold tracking-tight text-white group-hover:text-green-400 transition-colors">CleanCity<span class="text-green-500">.uk</span></span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 bg-black/20 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-lg">
+            <a href="index.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">Home</a>
+            <a href="about.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">About Us</a>
+            <a href="missions.html" class="text-green-400 font-bold text-sm relative group transition-colors">Our Missions</a>
+            <a href="teams.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">Our Teams</a>
+            <a href="contact.html" class="text-gray-200 hover:text-green-400 text-sm relative group transition-colors">Contact</a>
+        </div>
+
+        <div class="hidden md:block">
+            <div id="desktop-guest-view">
+                <button onclick="openLoginModal()" class="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-white/20 active:scale-95">Login</button>
+            </div>
+            <div id="desktop-user-view" class="hidden items-center gap-4 animate-fade-in-up">
+                <div class="flex flex-col text-right">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Welcome</span>
+                    <span id="user-email-display" class="text-sm font-bold text-green-400">user</span>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-green-500 to-emerald-400 flex items-center justify-center text-white font-bold shadow-lg shadow-green-500/20">U</div>
+                <button onclick="logout()" class="text-xs text-red-300 hover:text-red-200 hover:underline transition-colors">Logout</button>
+            </div>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2 bg-white/10 rounded-lg backdrop-blur-sm"><i data-lucide="menu"></i></button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-30 bg-slate-900/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 animate-fade-in-up">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-white p-2"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <div class="flex flex-col gap-4 text-center">
+            <a href="index.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">Home</a>
+            <a href="about.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">About Us</a>
+            <a href="missions.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white font-bold">Our Missions</a>
+            <a href="teams.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">Our Teams</a>
+            <a href="contact.html" class="text-lg py-3 border-b border-white/5 w-full text-center text-white">Contact</a>
+        </div>
+        <div class="mt-4">
+            <button id="mobile-login-btn" onclick="openLoginModal()" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold shadow-lg shadow-green-500/20">Login</button>
+            <button id="mobile-logout-btn" onclick="logout()" class="hidden w-full bg-red-500/20 text-red-300 py-4 rounded-xl font-bold border border-red-500/30">Logout</button>
+        </div>
+    </div>
+
+    <main class="relative z-10 flex flex-col flex-grow min-h-[80vh] px-4 pt-32 md:pt-48">
+        <section class="page-section">
+            <div class="reveal-on-scroll flex flex-col items-center justify-center text-center px-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    <span class="text-sm font-medium text-green-100">Our Missions Across the UK</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 drop-shadow-2xl max-w-5xl leading-tight">
+                    Turning <span class="text-gradient">Ideas</span><br />
+                    Into Cleaner Streets.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mb-12 leading-relaxed drop-shadow-lg bg-black/20 p-4 rounded-xl backdrop-blur-sm">
+                    From city-wide clean-ups to smarter waste collection, our missions are designed to create visible,
+                    measurable change in UK neighbourhoods.
+                </p>
+
+             <!-- Flex Mission Cards -->
+<div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto mb-20 md:mb-24">
+
+    <!-- Less Litter -->
+    <div 
+        onclick="openMission('less-litter')"
+        class="cursor-pointer bg-white/0 hover:bg-white/10 backdrop-blur-md 
+               border border-white/20 hover:border-green-400/40
+               px-10 py-6 rounded-2xl transition-all flex flex-col items-center 
+               text-center w-full sm:w-auto">
+
+        <i data-lucide="trash-2" class="w-7 h-7 text-green-400 mb-3"></i>
+        <span class="font-semibold text-lg">Less Litter</span>
+        <p class="text-gray-300 text-sm mt-2 max-w-[220px]">
+            Community clean-ups & improved litter facilities.
+        </p>
+    </div>
+
+    <!-- More Recycling -->
+    <div 
+        onclick="openMission('more-recycling')"
+        class="cursor-pointer bg-white/0 hover:bg-white/10 backdrop-blur-md 
+               border border-white/20 hover:border-green-400/40
+               px-10 py-6 rounded-2xl transition-all flex flex-col items-center 
+               text-center w-full sm:w-auto">
+
+        <i data-lucide="recycle" class="w-7 h-7 text-green-400 mb-3"></i>
+        <span class="font-semibold text-lg">More Recycling</span>
+        <p class="text-gray-300 text-sm mt-2 max-w-[220px]">
+            Raising recycling rates through education & tools.
+        </p>
+    </div>
+
+    <!-- Greener Spaces -->
+    <div 
+        onclick="openMission('greener-spaces')"
+        class="cursor-pointer bg-white/0 hover:bg-white/10 backdrop-blur-md 
+               border border-white/20 hover:border-green-400/40
+               px-10 py-6 rounded-2xl transition-all flex flex-col items-center 
+               text-center w-full sm:w-auto">
+
+        <i data-lucide="tree-deciduous" class="w-7 h-7 text-green-400 mb-3"></i>
+        <span class="font-semibold text-lg">Greener Spaces</span>
+        <p class="text-gray-300 text-sm mt-2 max-w-[220px]">
+            Planting trees & revitalising local parks.
+        </p>
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!--   Mission Modal (Popup)   -->
+<!-- ========================= -->
+<div id="mission-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-6">
+    <!-- Background overlay -->
+    <div onclick="closeMission()" class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+
+    <!-- Modal box -->
+    <div class="relative w-full max-w-2xl bg-white/5 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl z-10">
+
+        <!-- Close button -->
+        <button onclick="closeMission()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Header -->
+        <div id="modal-header" class="flex items-center gap-3 mb-6">
+            <!-- Icon + Title will be inserted here -->
+        </div>
+
+        <!-- Content -->
+        <div id="modal-content" class="text-gray-200 space-y-4">
+            <!-- Dynamic content loads here -->
+        </div>
+    </div>
+</div>
+
+<!-- ========================= -->
+<!--     Mission JS Content    -->
+<!-- ========================= -->
+<script>
+const missionData = {
+    "less-litter": {
+        title: "Less Litter",
+        icon: "trash-2",
+        content: `
+            <h3 class="text-xl font-semibold mb-2">Goal</h3>
+            <p class="mb-4">Reduce the amount of waste discarded in streets, parks, and public spaces.</p>
+
+            <h3 class="text-xl font-semibold mb-2">What it means</h3>
+            <p class="mb-4">Creating cleaner communities by preventing waste from ending up where it doesn’t belong.</p>
+
+            <h3 class="text-xl font-semibold mb-2">Practical Solutions</h3>
+            <ul class="list-disc ml-5 space-y-2">
+                <li><strong>Organize community clean-up events:</strong> Bring residents together for monthly or quarterly clean-ups in parks, riversides, and neighbourhoods.</li>
+                <li><strong>Install more bins and recycling points:</strong> Ensure waste and recycling bins are easily accessible in busy areas.</li>
+                <li><strong>Awareness campaigns:</strong> Use posters, social media, and workshops to educate people on proper waste disposal.</li>
+                <li><strong>Enforce anti-littering measures:</strong> Partner with local authorities to improve enforcement and signage.</li>
+            </ul>
+        `
+    },
+
+    "more-recycling": {
+        title: "More Recycling",
+        icon: "recycle",
+        content: `
+            <h3 class="text-xl font-semibold mb-2">Goal</h3>
+            <p class="mb-4">Increase recycling rates at home and in businesses.</p>
+
+            <h3 class="text-xl font-semibold mb-2">What it means</h3>
+            <p class="mb-4">Helping people understand what can be recycled and making recycling an easy, default habit.</p>
+
+            <h3 class="text-xl font-semibold mb-2">Practical Solutions</h3>
+            <ul class="list-disc ml-5 space-y-2">
+                <li><strong>Educational programs:</strong> Teach residents what materials are recyclable and how to sort waste properly.</li>
+                <li><strong>Introduce convenient recycling bins:</strong> Provide labelled bins in homes, offices, and public spaces.</li>
+                <li><strong>Partner with schools and businesses:</strong> Create recycling challenges, workshops, and incentives for participation.</li>
+                <li><strong>Promote re-use culture:</strong> Encourage donation of unwanted items, repair workshops, and “swap days.”</li>
+            </ul>
+        `
+    },
+
+    "greener-spaces": {
+        title: "Greener Spaces",
+        icon: "tree-deciduous",
+        content: `
+            <h3 class="text-xl font-semibold mb-2">Goal</h3>
+            <p class="mb-4">Improve natural and outdoor areas for healthier, more beautiful communities.</p>
+
+            <h3 class="text-xl font-semibold mb-2">What it means</h3>
+            <p class="mb-4">Planting more trees, revitalising parks, and creating landscaping that benefits people and the environment.</p>
+
+            <h3 class="text-xl font-semibold mb-2">Practical Solutions</h3>
+            <ul class="list-disc ml-5 space-y-2">
+                <li><strong>Tree-planting initiatives:</strong> Organise events that involve volunteers planting trees in parks and streets.</li>
+                <li><strong>Revamp neglected spaces:</strong> Turn empty lots into mini-parks, gardens, or green community hubs.</li>
+                <li><strong>Create biodiversity areas:</strong> Add native plants, wildflower meadows, and pollinator-friendly gardens.</li>
+                <li><strong>Improve public space design:</strong> Add benches, pathways, lighting, and art to make outdoor areas more enjoyable.</li>
+            </ul>
+        `
+    }
+};
+
+// Open modal
+function openMission(id) {
+    const m = missionData[id];
+    if (!m) return;
+
+    document.getElementById("modal-header").innerHTML = `
+        <i data-lucide="${m.icon}" class="w-8 h-8 text-green-400"></i>
+        <h2 class="text-3xl font-bold">${m.title}</h2>
+    `;
+    document.getElementById("modal-content").innerHTML = m.content;
+
+    if (window.lucide) lucide.createIcons();
+
+    document.getElementById("mission-modal").classList.remove("hidden");
+}
+
+// Close modal
+function closeMission() {
+    document.getElementById("mission-modal").classList.add("hidden");
+}
+</script>
+
+
+
+    <footer class="relative z-20 bg-slate-950 border-t border-white/10 pt-16 pb-8 text-sm">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6"><div class="flex items-center gap-2"><i data-lucide="leaf" class="w-6 h-6 text-green-500"></i><span class="text-xl font-bold text-white">CleanCity<span class="text-green-500">.uk</span></span></div><p class="text-gray-400">Empowering communities across the UK.</p></div>
+                <div><h4 class="text-white font-bold mb-6">Quick Links</h4><ul class="space-y-4"><li><a href="index.html" class="text-gray-400 hover:text-green-400">Home</a></li><li><a href="about.html" class="text-gray-400 hover:text-green-400">About Us</a></li><li><a href="missions.html" class="text-gray-400 hover:text-green-400">Our Missions</a></li><li><a href="teams.html" class="text-gray-400 hover:text-green-400">Our Teams</a></li><li><a href="contact.html" class="text-gray-400 hover:text-green-400">Contact</a></li></ul></div>
+                <div><h4 class="text-white font-bold mb-6">Contact</h4><ul class="space-y-4 text-gray-400"><li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-green-500"></i><span>10 Rosebery Avenue, London, UK</span></li><li class="flex items-center gap-3"><i data-lucide="mail" class="w-5 h-5 text-green-500"></i><span>info@cleancity.org.uk</span></li></ul></div>
+                <div><h4 class="text-white font-bold mb-6">Newsletter</h4><form class="space-y-3" onsubmit="event.preventDefault();"><input type="email" placeholder="Your email" class="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-green-500" /><button class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg">Subscribe</button></form></div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-gray-500">©️ 2025 CleanCity UK Initiative.</div>
+        </div>
+    </footer>
+
+    <div id="login-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="modal-backdrop" onclick="closeLoginModal()" class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+        <div class="relative w-full max-w-md bg-slate-900 border border-white/20 rounded-[2rem] shadow-2xl overflow-hidden animate-fade-in-up">
+            <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-br from-green-500/20 to-blue-500/20 blur-2xl"></div>
+            <button onclick="closeLoginModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white z-20"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="p-8 relative z-10">
+                <div class="text-center mb-10 mt-4"><h2 class="text-3xl font-bold text-white">Welcome Back</h2><p class="text-gray-400 mt-3">Access your dashboard.</p></div>
+                <form id="auth-form" class="space-y-5"><input type="email" id="email-input" required placeholder="name@example.com" class="w-full bg-slate-800 border border-white/10 rounded-xl py-4 px-4 text-white"><input type="password" id="password-input" required placeholder="••••••••" class="w-full bg-slate-800 border border-white/10 rounded-xl py-4 px-4 text-white"><button type="submit" class="w-full bg-green-600 text-white font-bold py-4 rounded-xl mt-4">Access Account</button></form>
+            </div>
+        </div>
+    </div>
+
+  <script src="js/jquery.min.js"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
